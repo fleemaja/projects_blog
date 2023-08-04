@@ -36,7 +36,24 @@ const project = {
                   type: 'block'
                 },
                 {
-                  type: 'image'
+                  type: 'image',
+                  options: {
+                    hotspot: true,
+                  },
+                  fields: [
+                    {
+                      name: 'caption',
+                      type: 'string',
+                      title: 'Image caption',
+                      description: 'Caption displayed below the image.'
+                    },
+                    {
+                      name: 'alt',
+                      type: 'string',
+                      title: 'Alternative text',
+                      description: 'Important for SEO and accessiblity.',
+                    },
+                  ],
                 },
                 {
                   type: 'youtube'

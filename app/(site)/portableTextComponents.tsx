@@ -1,28 +1,51 @@
 import Image from 'next/image'
-import imageUrlBuilder from '@sanity/image-url'
+import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
+import { useNextSanityImage } from 'next-sanity-image'
 import client from '@/sanity/config/client-config'
 import YouTubeEmbed from "./youtubeEmbed";
 import getYouTubeID from "get-youtube-id";
+import { type PortableTextReactComponents } from '@portabletext/react'
+import { createClient, type SanityClient } from 'next-sanity';
 
-function urlFor (source: any) {
-  return imageUrlBuilder(client).image(source)
+interface Props {
+  asset: SanityImageSource
+  alt: string
+  caption?: string
 }
 
-export const PortableTextComponents = {
+const SanityImage = async (props: Props) => {
+  const { asset, alt, caption } = props
+  const imageProps = useNextSanityImage(createClient(client), asset)
+
+  if (!imageProps) return null
+
+  return (
+    <figure>
+      <Image
+        className="mx-auto"
+        src={imageProps.src}
+        width={imageProps.width}
+        height={imageProps.height}
+        alt={alt}
+        sizes="(max-width: 800px) 100vw, 800px"
+      />
+      {caption && (
+        <figcaption className="text-center">
+          {caption}
+        </figcaption>
+      )}
+    </figure>
+  )
+}
+
+export const PortableTextComponents: Partial<PortableTextReactComponents> = {
     types: {
-        image: ({value}:any) => {
-            return (
-                <Image
-                  src={urlFor(value).url()}
-                  width={200}
-                  height={150}
-                  alt="Blog Image"
-                 />
-            )
+        image: ({ value }: any) => {
+          return <SanityImage {...value} />
         },
         youtube: ({ value }: any) => {
-            const id = getYouTubeID(value.url);
-            return id ? <YouTubeEmbed id={id} /> : null;
-          },
+          const id = getYouTubeID(value.url);
+          return id ? <YouTubeEmbed id={id} /> : null;
+        },
     }
 }
