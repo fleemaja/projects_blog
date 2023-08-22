@@ -14,7 +14,10 @@ export async function getProjects(): Promise<Project[]> {
             "slug": slug.current,
             "image": image.asset->url,
             content,
-            category->
+            category->{
+                ...,
+                slug->
+            }
         }`
     )
 }
@@ -29,7 +32,10 @@ export async function getProject(slug: string): Promise<Project> {
             "slug": slug.current,
             "image": image.asset->url,
             content,
-            category->
+            category->{
+                ...,
+                slug->
+            }
         }`,
         { slug }
     )
@@ -65,7 +71,7 @@ export async function getCategories(): Promise<Category[]> {
             _id,
             _createdAt,
             title,
-            slug
+            "slug": slug.current
         }`
     )
 }
@@ -92,7 +98,10 @@ export async function getCategoryProjects(category: string): Promise<Project[]> 
             "slug": slug.current,
             "image": image.asset->url,
             content,
-            category->
+            category->{
+                ...,
+                slug->
+            }
         }`,
         { category }
     )

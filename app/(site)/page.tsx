@@ -27,7 +27,7 @@ export default async function Home() {
               </span>
             </Link>
           { categories.map((category) => (
-            <Link key={category._id} href={`/projects/${category.slug.current}`} className="hover:underline">
+            <Link key={category._id} href={`/projects/${category.slug}`} className="hover:underline">
               <span className="p-2 rounded-lg border border-gray-500">
                 {category.title}
               </span>
@@ -39,7 +39,7 @@ export default async function Home() {
           {
             projects.map((project) => (
               <Link 
-                href={`/projects/${project.category.slug.current}/${project.slug}`}
+                href={`/projects/${project.category.slug}/${project.slug}`}
                 className="rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition" key={project._id}>
                 {
                   project.image && (
