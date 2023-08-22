@@ -1,6 +1,7 @@
 import { getProject } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
+import Link from "next/link";
 import { PortableTextComponents } from "../../../portableTextComponents";
 
 type Props = {
@@ -12,14 +13,16 @@ export default async function Project({ params }: Props) {
     const project = await getProject(slug);
 
     return (
-      <div className="max-w-3xl mx-auto mt-10">
+      <div className="max-w-3xl mx-auto mt-5">
+        <div className="mb-5">
+            <Link href={`/projects/${project.category.slug}`}>
+                &#8592; {project.category.title}
+            </Link>
+        </div>
         <header className="flex items-center justify-between">
             <h1 className="text-gray-700 text-5xl font-extrabold">
                 { project.name }
             </h1>
-            <div>
-                { project.category.title }
-            </div>
         </header>
 
         <Image 

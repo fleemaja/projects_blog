@@ -16,7 +16,7 @@ export async function getProjects(): Promise<Project[]> {
             content,
             category->{
                 ...,
-                slug->
+                "slug": slug.current
             }
         }`
     )
@@ -34,7 +34,7 @@ export async function getProject(slug: string): Promise<Project> {
             content,
             category->{
                 ...,
-                slug->
+                "slug": slug.current
             }
         }`,
         { slug }
@@ -100,7 +100,7 @@ export async function getCategoryProjects(category: string): Promise<Project[]> 
             content,
             category->{
                 ...,
-                slug->
+                "slug": slug.current
             }
         }`,
         { category }
