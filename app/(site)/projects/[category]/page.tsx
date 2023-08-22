@@ -1,10 +1,15 @@
-import { getCategories, getProjects } from "@/sanity/sanity-utils";
+import { getCategories, getCategoryProjects, getCategory } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
 
-export default async function Home() {
-  const projects = await getProjects();
+type Props = {
+    params: { category: string }
+}
+
+export default async function CategoryPage({params}: Props) {
+  const projects = await getCategoryProjects(params.category);
   const categories = await getCategories();
+  const categoryObj = await getCategory(params.category);
 
   return (
     <div>
@@ -14,7 +19,7 @@ export default async function Home() {
             Project-based <span className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 bg-clip-text text-transparent">Learning</span>
           </h1>
           <p className="mt-3 text-xl text-gray-600">
-            Exploring the world, gaining skills, and trying new things
+            { categoryObj && categoryObj.title }
           </p>
         </div>
       </div>
@@ -22,17 +27,29 @@ export default async function Home() {
 
         <div className="flex items-center gap-5 text-lg text-gray-600">
             <Link href={`/`} className="hover:underline">
-              <span className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 text-white p-2 rounded-lg border border-gray-500">
+              <span className="p-2 rounded-lg border border-gray-500">
                 All
               </span>
             </Link>
-          { categories.map((category) => (
-            <Link key={category._id} href={`/projects/${category.slug.current}`} className="hover:underline">
-              <span className="p-2 rounded-lg border border-gray-500">
-                {category.title}
-              </span>
-            </Link>
-          ))}
+          { categories.map((category) => {
+            if (category.slug.current == params.category) {
+                return (
+                    <Link key={category._id} href={`/projects/${category.slug.current}`} className="hover:underline">
+                      <span className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 text-white p-2 rounded-lg border border-gray-500">
+                        {category.title}
+                      </span>
+                    </Link>
+                  )
+            } else {
+                return (
+                    <Link key={category._id} href={`/projects/${category.slug.current}`} className="hover:underline">
+                      <span className="p-2 rounded-lg border border-gray-500">
+                        {category.title}
+                      </span>
+                    </Link>
+                  )
+            }
+          })}
         </div>
 
         <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">

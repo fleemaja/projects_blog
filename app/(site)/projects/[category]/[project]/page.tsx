@@ -1,7 +1,7 @@
 import { getProject } from "@/sanity/sanity-utils";
 import { PortableText } from "@portabletext/react";
 import Image from "next/image";
-import { PortableTextComponents } from "../../portableTextComponents";
+import { PortableTextComponents } from "../../../portableTextComponents";
 
 type Props = {
     params: { project: string }
@@ -17,6 +17,9 @@ export default async function Project({ params }: Props) {
             <h1 className="text-gray-700 text-5xl font-extrabold">
                 { project.name }
             </h1>
+            <div>
+                { project.category.title }
+            </div>
         </header>
 
         <Image 

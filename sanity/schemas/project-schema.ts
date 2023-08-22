@@ -59,6 +59,12 @@ const project = {
                   type: 'youtube'
                 }
             ]
+        },
+        {
+          name: 'category',
+          title: 'Category',
+          type: 'reference', 
+          to: {type: 'category'},
         }
     ]
 }

@@ -1,4 +1,5 @@
 import { PortableTextBlock } from "sanity";
+import { Category } from "./Category";
 
 export type Project = {
     _id: string;
@@ -7,4 +8,5 @@ export type Project = {
     slug: string;
     image: string;
     content: PortableTextBlock[];
+    category: Category;
 }

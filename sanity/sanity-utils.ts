@@ -1,5 +1,6 @@
 import { Project } from "@/types/Project";
 import { Page } from "@/types/Page";
+import { Category } from "@/types/Category";
 import { createClient, groq } from "next-sanity";
 import clientConfig from "./config/client-config";
 
@@ -12,7 +13,8 @@ export async function getProjects(): Promise<Project[]> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
-            content
+            content,
+            category->
         }`
     )
 }
@@ -26,7 +28,8 @@ export async function getProject(slug: string): Promise<Project> {
             name,
             "slug": slug.current,
             "image": image.asset->url,
-            content
+            content,
+            category->
         }`,
         { slug }
     )
@@ -53,5 +56,44 @@ export async function getPage(slug: string): Promise<Page> {
             content
         }`,
         { slug }
+    )
+}
+
+export async function getCategories(): Promise<Category[]> {
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "category"]{
+            _id,
+            _createdAt,
+            title,
+            slug
+        }`
+    )
+}
+
+export async function getCategory(slug: string): Promise<Category> {
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "category" && slug.current == $slug][0]{
+            _id,
+            _createdAt,
+            title,
+            "slug": slug.current
+        }`,
+        { slug }
+    )
+}
+
+export async function getCategoryProjects(category: string): Promise<Project[]> {
+
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "project" && category->slug.current == $category]{
+            _id,
+            _createdAt,
+            name,
+            "slug": slug.current,
+            "image": image.asset->url,
+            content,
+            category->
+        }`,
+        { category }
     )
 }
