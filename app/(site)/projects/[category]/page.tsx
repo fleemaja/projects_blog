@@ -26,24 +26,24 @@ export default async function CategoryPage({params}: Props) {
       <div className="max-w-5xl mx-auto mt-10">
 
         <div className="flex items-center gap-5 text-lg text-gray-600">
-            <Link href={`/`} className="hover:underline">
-              <span className="p-2 rounded-lg border border-gray-500">
+            <Link href={`/`}>
+              <span className="p-2 rounded-lg border border-gray-500 hover:bg-gray-100">
                 All
               </span>
             </Link>
           { categories.map((category) => {
             if (category.slug == params.category) {
                 return (
-                    <Link key={category._id} href={`/projects/${category.slug}`} className="hover:underline">
-                      <span className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 text-white p-2 rounded-lg border border-gray-500">
+                    <Link key={category._id} href={`/projects/${category.slug}`}>
+                      <span className="bg-gradient-to-r from-green-100 via-sky-200 to-blue-300 text-gray-900 p-2 rounded-lg border border-gray-500">
                         {category.title}
                       </span>
                     </Link>
                   )
             } else {
                 return (
-                    <Link key={category._id} href={`/projects/${category.slug}`} className="hover:underline">
-                      <span className="p-2 rounded-lg border border-gray-500">
+                    <Link key={category._id} href={`/projects/${category.slug}`}>
+                      <span className="p-2 rounded-lg border border-gray-500 hover:bg-gray-100">
                         {category.title}
                       </span>
                     </Link>
