@@ -14,7 +14,7 @@ export default async function CategoryPage({params}: Props) {
   return (
     <div>
       <div className="bg-gray-100 py-10">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-3xl mx-auto px-5 lg:px-0">
           <h1 className="text-5xl font-extrabold">
             Project-based <span className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 bg-clip-text text-transparent">Learning</span>
           </h1>
@@ -25,7 +25,7 @@ export default async function CategoryPage({params}: Props) {
       </div>
       <div className="max-w-5xl mx-auto mt-10">
 
-        <div className="flex items-center gap-5 text-lg text-gray-600">
+        <div className="flex flex-wrap items-center gap-5 text-lg text-gray-600 px-5">
             <Link href={`/`}>
               <span className="p-2 rounded-lg border border-gray-500 hover:bg-gray-100">
                 All
@@ -52,7 +52,7 @@ export default async function CategoryPage({params}: Props) {
           })}
         </div>
 
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-5 lg:px-0">
           {
             projects.map((project) => (
               <Link 

@@ -13,7 +13,7 @@ export default async function Project({ params }: Props) {
     const project = await getProject(slug);
 
     return (
-      <div className="max-w-3xl mx-auto mt-5">
+      <div className="max-w-3xl mx-auto mt-5 px-5 lg:px-0">
         <div className="mb-5 text-xl">
             <Link href={`/projects/${project.category.slug}`}>
                 &#8592; 
