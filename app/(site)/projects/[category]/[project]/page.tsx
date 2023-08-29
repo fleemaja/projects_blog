@@ -14,9 +14,12 @@ export default async function Project({ params }: Props) {
 
     return (
       <div className="max-w-3xl mx-auto mt-5">
-        <div className="mb-5">
+        <div className="mb-5 text-xl">
             <Link href={`/projects/${project.category.slug}`}>
-                &#8592; {project.category.title}
+                &#8592; 
+                <span className="ml-2 hover:underline underline-offset-8 decoration-blue-500">
+                  {project.category.title}
+                </span>
             </Link>
         </div>
         <header className="flex items-center justify-between">
