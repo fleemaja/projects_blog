@@ -3,4 +3,5 @@ export type Category = {
     _createdAt: Date;
     title: string;
     slug: string;
+    color: string;
 }

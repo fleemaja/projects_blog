@@ -71,20 +71,9 @@ export async function getCategories(): Promise<Category[]> {
             _id,
             _createdAt,
             title,
-            "slug": slug.current
+            "slug": slug.current,
+            color
         }`
-    )
-}
-
-export async function getCategory(slug: string): Promise<Category> {
-    return createClient(clientConfig).fetch(
-        groq`*[_type == "category" && slug.current == $slug][0]{
-            _id,
-            _createdAt,
-            title,
-            "slug": slug.current
-        }`,
-        { slug }
     )
 }
 
