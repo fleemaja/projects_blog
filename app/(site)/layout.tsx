@@ -26,7 +26,7 @@ export default async function RootLayout({
             href="/"
             className="bg-gradient-to-r from-green-400 via-sky-500 to-blue-600 bg-clip-text text-transparent text-xl font-bold"
           >
-            Drew's Projects
+            drew&apos;s projects
           </Link>
           <div className="flex items-center gap-5 text-lg text-gray-600">
             {pages.map((page) => (
