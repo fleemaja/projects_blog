@@ -2,6 +2,10 @@ import { getCategories, getProjects } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
 
+function tailwindTextColor(color: string):string {
+  return "text-" + color + "-700"
+}
+
 export default async function Home() {
   const projects = await getProjects();
   const categories = await getCategories();
@@ -45,7 +49,7 @@ export default async function Home() {
                 <div className="mt-2 text-xl font-extrabold text-gray-700">
                   {project.name}
                 </div>
-                <p className={`text-${project.category.color}`}>
+                <p className={`${tailwindTextColor(project.category.color)}`}>
                   {project.category.title}
                 </p>
               </Link>
