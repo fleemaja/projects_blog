@@ -2,9 +2,16 @@ import { getCategories, getProjects } from "@/sanity/sanity-utils";
 import Image from "next/image";
 import Link from "next/link";
 
-function tailwindTextColor(color: string):string {
-  return "text-" + color + "-700"
-}
+const tailwindTextColor: { [key: string]: string } = {
+  'red': 'text-red-700',
+  'orange': 'text-orange-700',
+  'yellow': 'text-yellow-700',
+  'green': 'text-green-700',
+  'teal': 'text-teal-700',
+  'blue': 'text-blue-700',
+  'indigo': 'text-indigo-700',
+  'violet': 'text-violet-700'
+};
 
 export default async function Home() {
   const projects = await getProjects();
@@ -34,7 +41,7 @@ export default async function Home() {
             projects.map((project) => (
               <Link 
                 href={`/projects/${project.category.slug}/${project.slug}`}
-                className="rounded-lg p-1 hover:scale-105 hover:border-blue-500 transition" key={project._id}>
+                className="group rounded-lg p-1" key={project._id}>
                 {
                   project.image && (
                     <Image 
@@ -46,10 +53,10 @@ export default async function Home() {
                     />
                   )
                 }
-                <div className="mt-2 text-xl font-extrabold text-gray-700">
+                <div className="mt-2 text-xl font-extrabold text-gray-700 group-hover:underline decoration-4 underline-offset-4 decoration-zinc-900">
                   {project.name}
                 </div>
-                <p className={`${tailwindTextColor(project.category.color)}`}>
+                <p className={`${tailwindTextColor[project.category.color]}`}>
                   {project.category.title}
                 </p>
                 <p>
