@@ -8,5 +8,6 @@ export type Project = {
     slug: string;
     image: string;
     content: PortableTextBlock[];
+    excerpt: string;
     category: Category;
 }

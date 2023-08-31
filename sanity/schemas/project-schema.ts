@@ -61,6 +61,11 @@ const project = {
             ]
         },
         {
+          name: 'excerpt',
+          title: 'Excerpt',
+          type: 'string',
+        },
+        {
           name: 'category',
           title: 'Category',
           type: 'reference', 

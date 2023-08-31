@@ -52,6 +52,9 @@ export default async function Home() {
                 <p className={`${tailwindTextColor(project.category.color)}`}>
                   {project.category.title}
                 </p>
+                <p>
+                  {project.excerpt}
+                </p>
               </Link>
             ))
           }

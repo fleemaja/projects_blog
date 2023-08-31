@@ -61,6 +61,9 @@ export default async function CategoryPage({params}: Props) {
                 <div className="mt-2 text-xl font-extrabold text-gray-700">
                   {project.name}
                 </div>
+                <p>
+                  {project.excerpt}
+                </p>
               </Link>
             ))
           }
