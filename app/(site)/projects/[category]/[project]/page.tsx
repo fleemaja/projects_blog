@@ -11,6 +11,7 @@ type Props = {
 export default async function Project({ params }: Props) {
     const slug = params.project;
     const project = await getProject(slug);
+    const datePosted = new Date(project._createdAt).toLocaleDateString('en-us', { year:"numeric", month:"short", day:"numeric"});
 
     return (
       <div className="max-w-3xl mx-auto mt-5 px-5 lg:px-0">
@@ -22,10 +23,13 @@ export default async function Project({ params }: Props) {
                 </span>
             </Link>
         </div>
-        <header className="flex items-center justify-between">
+        <header>
             <h1 className="text-gray-700 text-5xl font-extrabold">
                 { project.name }
             </h1>
+            <p className="mt-2">
+                { `Published: ${datePosted}` }
+            </p>
         </header>
 
         <Image 
