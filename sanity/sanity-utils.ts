@@ -7,7 +7,7 @@ import clientConfig from "./config/client-config";
 export async function getProjects(): Promise<Project[]> {
 
     return createClient(clientConfig).fetch(
-        groq`*[_type == "project"]{
+        groq`*[_type == "project"] | order(_createdAt desc){
             _id,
             _createdAt,
             name,
@@ -82,7 +82,7 @@ export async function getCategories(): Promise<Category[]> {
 export async function getCategoryProjects(category: string): Promise<Project[]> {
 
     return createClient(clientConfig).fetch(
-        groq`*[_type == "project" && category->slug.current == $category]{
+        groq`*[_type == "project" && category->slug.current == $category] | order(_createdAt desc){
             _id,
             _createdAt,
             name,
