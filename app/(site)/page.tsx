@@ -39,36 +39,34 @@ export default async function Home() {
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-8 px-5 lg:px-20">
           {
             projects.map((project) => (
-              <div className="">
-                <Link 
-                  href={`/projects/${project.category.slug}/${project.slug}`}
-                  className="grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-0 group rounded-lg p-1" key={project._id}>
-                  {
-                    project.image && (
-                      <div>
-                        <Image 
-                          src={project.image}
-                          alt={project.name}
-                          width={750}
-                          height={300}
-                          className="object-cover rounded-lg border border-gray-500"
-                        />
-                      </div>
-                    )
-                  }
-                  <div>
-                    <div className="mt-2 text-xl font-extrabold text-gray-700 group-hover:underline decoration-4 underline-offset-4 decoration-zinc-900">
-                      {project.name}
+              <Link 
+                href={`/projects/${project.category.slug}/${project.slug}`}
+                className="grid grid-cols-2 gap-4 md:grid-cols-1 md:gap-0 group rounded-lg p-1" key={project._id}>
+                {
+                  project.image && (
+                    <div>
+                      <Image 
+                        src={project.image}
+                        alt={project.name}
+                        width={750}
+                        height={300}
+                        className="object-cover rounded-lg border border-gray-500"
+                      />
                     </div>
-                    <p className={`${tailwindTextColor[project.category.color]}`}>
-                      {project.category.title}
-                    </p>
-                    <p>
-                      {project.excerpt}
-                    </p>
+                  )
+                }
+                <div>
+                  <div className="mt-2 text-xl font-extrabold text-gray-700 group-hover:underline decoration-4 underline-offset-4 decoration-zinc-900">
+                    {project.name}
                   </div>
-                </Link>
-              </div>
+                  <p className={`${tailwindTextColor[project.category.color]}`}>
+                    {project.category.title}
+                  </p>
+                  <p>
+                    {project.excerpt}
+                  </p>
+                </div>
+              </Link>
             ))
           }
         </div>
