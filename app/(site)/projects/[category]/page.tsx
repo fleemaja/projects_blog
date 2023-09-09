@@ -24,7 +24,7 @@ export default async function CategoryPage({params}: Props) {
             if (category.slug == params.category) {
                 return (
                     <Link key={category._id} href={`/projects/${category.slug}`}>
-                      <span className="bg-gradient-to-r from-green-100 via-sky-200 to-blue-300 text-gray-900 p-2 rounded-lg border border-gray-500">
+                      <span className="bg-gradient-to-r from-amber-100 via-pink-200 to-teal-300 text-gray-950 p-2 rounded-lg border border-gray-500">
                         {category.title}
                       </span>
                     </Link>
