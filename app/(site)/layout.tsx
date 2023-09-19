@@ -24,7 +24,7 @@ export default async function RootLayout({
         <header className="max-w-3xl mx-auto flex items-center justify-between px-5 lg:px-0">
           <Link 
             href="/"
-            className="bg-gradient-to-r from-amber-400 via-pink-400 to-teal-500 bg-clip-text text-transparent text-xl font-bold"
+            className="bg-gradient-to-r from-amber-300 via-rose-500 to-teal-500 bg-clip-text text-transparent text-xl font-bold"
           >
             drew&apos;s projects
           </Link>

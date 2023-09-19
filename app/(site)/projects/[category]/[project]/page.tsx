@@ -40,7 +40,7 @@ export default async function Project({ params }: Props) {
             className="mt-10 border-2 border-gray-700 object-cover rounded-xl"
         />
 
-        <div className="prose text-lg text-gray-700 mt-5">
+        <div className="prose text-lg text-gray-700 mt-10">
             <PortableText value={project.content} components={PortableTextComponents} />
         </div>
       </div>
