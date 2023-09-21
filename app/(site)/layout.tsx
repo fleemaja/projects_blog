@@ -22,12 +22,21 @@ export default async function RootLayout({
     <html lang="en">
       <body className="mx-auto py-5">
         <header className="max-w-3xl mx-auto flex items-center justify-between px-5 lg:px-0">
-          <Link 
-            href="/"
-            className="bg-gradient-to-r from-amber-300 via-rose-500 to-teal-500 bg-clip-text text-transparent text-xl font-bold"
-          >
-            drew&apos;s projects
-          </Link>
+          <div className="flex">
+            <svg className="w-[21px] fill-current text-gray-900 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
+              <g fill-rule="nonzero">
+                <circle cx="7" cy="22" r="7"/>
+                <circle cx="23" cy="22" r="7"/>
+                <circle cx="15" cy="8" r="7"/>
+              </g>
+            </svg>
+            <Link 
+              href="/"
+              className="bg-gradient-to-r from-amber-300 via-rose-500 to-teal-500 bg-clip-text text-transparent text-xl font-bold"
+            >
+              drew&apos;s projects
+            </Link>
+          </div>
           <div className="flex items-center gap-5 text-lg text-gray-600">
             {pages.map((page) => (
               <Link key={page._id} href={`/${page.slug}`} className="hover:underline">
