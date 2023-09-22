@@ -1,5 +1,6 @@
 import { defineConfig } from 'sanity';
 import { deskTool } from 'sanity/desk';
+import {codeInput} from '@sanity/code-input'
 import schemas from './sanity/schemas';
 
 const config = defineConfig({
@@ -8,7 +9,7 @@ const config = defineConfig({
     title: 'Learning Projects Blog',
     apiVersion: '2023-06-27',
     basePath: '/admin',
-    plugins: [deskTool()],
+    plugins: [deskTool(), codeInput()],
     schema: { types: schemas }
 })
 

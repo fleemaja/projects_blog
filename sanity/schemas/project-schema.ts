@@ -57,6 +57,11 @@ const project = {
                 },
                 {
                   type: 'youtube'
+                },
+                {
+                  name: 'code',
+                  title: 'Code Block',
+                  type: 'code'
                 }
             ]
         },

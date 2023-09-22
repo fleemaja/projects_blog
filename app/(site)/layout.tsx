@@ -24,7 +24,7 @@ export default async function RootLayout({
         <header className="max-w-3xl mx-auto flex items-center justify-between px-5 lg:px-0">
           <div className="flex">
             <svg className="w-[21px] fill-current text-gray-900 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
-              <g fill-rule="nonzero">
+              <g fillRule="nonzero">
                 <circle cx="7" cy="22" r="7"/>
                 <circle cx="23" cy="22" r="7"/>
                 <circle cx="15" cy="8" r="7"/>

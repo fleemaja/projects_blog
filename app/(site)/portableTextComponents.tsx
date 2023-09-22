@@ -3,6 +3,7 @@ import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 import { useNextSanityImage } from 'next-sanity-image'
 import client from '@/sanity/config/client-config'
 import YouTubeEmbed from "./youtubeEmbed";
+import CodeEmbed from './codeEmbed';
 import getYouTubeID from "get-youtube-id";
 import { type PortableTextReactComponents } from '@portabletext/react'
 import { createClient, type SanityClient } from 'next-sanity';
@@ -47,5 +48,8 @@ export const PortableTextComponents: Partial<PortableTextReactComponents> = {
           const id = getYouTubeID(value.url);
           return id ? <YouTubeEmbed id={id} /> : null;
         },
+        code: ({ value }: any) => {
+          return <CodeEmbed {...value} />
+        }
     }
 }
