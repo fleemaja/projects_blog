@@ -4,6 +4,7 @@ import { useNextSanityImage } from 'next-sanity-image'
 import client from '@/sanity/config/client-config'
 import YouTubeEmbed from "./youtubeEmbed";
 import CodeEmbed from './codeEmbed';
+import CodepenEmbed from './codepenEmbed';
 import getYouTubeID from "get-youtube-id";
 import { type PortableTextReactComponents } from '@portabletext/react'
 import { createClient, type SanityClient } from 'next-sanity';
@@ -50,6 +51,9 @@ export const PortableTextComponents: Partial<PortableTextReactComponents> = {
         },
         code: ({ value }: any) => {
           return <CodeEmbed {...value} />
-        }
+        },
+        codepen: ({ value }: any) => {
+          return <CodepenEmbed {...value} />
+        },
     }
 }
