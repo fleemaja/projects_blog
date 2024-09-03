@@ -15,11 +15,10 @@ const CodepenEmbed = (props: any) => {
     <iframe 
       height="500" 
       style={{ width: '100%' }}
-      scrolling="no" 
-      title="Atari Breakout" 
+      scrolling="no"
       src={embedUrl} 
       frameBorder="no" 
-      loading="lazy" 
+      loading="lazy"
       allowTransparency
       allowFullScreen>
     </iframe>

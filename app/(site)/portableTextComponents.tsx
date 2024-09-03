@@ -6,6 +6,7 @@ import YouTubeEmbed from "./youtubeEmbed";
 import CodeEmbed from './codeEmbed';
 import CodepenEmbed from './codepenEmbed';
 import getYouTubeID from "get-youtube-id";
+import Link from "next/link";
 import { type PortableTextReactComponents } from '@portabletext/react'
 import { createClient, type SanityClient } from 'next-sanity';
 
@@ -55,5 +56,18 @@ export const PortableTextComponents: Partial<PortableTextReactComponents> = {
         codepen: ({ value }: any) => {
           return <CodepenEmbed {...value} />
         },
+    },
+    marks: {
+      link: ({ children, value }) => {
+        return (
+          <Link
+            {...value}
+            className="text-blue-600 hover:text-blue-500 no-underline"
+            target="_blank"
+          >
+            {children}
+          </Link>
+        );
+      },
     }
 }
