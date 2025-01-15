@@ -32,7 +32,7 @@ export default async function RootLayout({
               drew&apos;s projects
             </Link>
           </div>
-          <div className="flex items-center gap-5 text-lg text-gray-600">
+          <div className="flex items-center gap-10 text-lg text-gray-600">
             <Link href={`/books`} className="hover:underline">
               Book Notes
             </Link>
