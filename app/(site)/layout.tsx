@@ -16,8 +16,6 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
 
-  const pages = await getPages();
-
   return (
     <html lang="en">
       <body className="mx-auto py-5">
@@ -35,11 +33,12 @@ export default async function RootLayout({
             </Link>
           </div>
           <div className="flex items-center gap-5 text-lg text-gray-600">
-            {pages.map((page) => (
-              <Link key={page._id} href={`/${page.slug}`} className="hover:underline">
-                {page.title}
-              </Link>
-            ))}
+            <Link href={`/books`} className="hover:underline">
+              Book Notes
+            </Link>
+            <Link href={`/about`} className="hover:underline">
+              About
+            </Link>
           </div>
         </header>
         <main className="py-5">{children}</main>
