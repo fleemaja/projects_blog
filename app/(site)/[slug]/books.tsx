@@ -17,7 +17,7 @@ export default async function Books() {
                       <Image 
                         src={book.image}
                         alt={book.name}
-                        width={750}
+                        width={196}
                         height={300}
                         className="object-cover rounded-lg border border-gray-500"
                       />
