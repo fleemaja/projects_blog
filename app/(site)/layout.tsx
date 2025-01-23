@@ -41,7 +41,7 @@ export default async function RootLayout({
             </Link>
           </div>
         </header>
-        <main className="py-5 mb-40">{children}</main>
+        <main className="py-5 mb-20">{children}</main>
         <footer className="mt-auto flex flex-col md:flex-row items-center justify-between gap-8 py-20 px-2 sm:px-20 bg-slate-800 text-white">
           <div className="flex">
             <svg className="w-[21px] fill-current text-gray-900 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">

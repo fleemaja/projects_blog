@@ -1,5 +1,6 @@
 import { getPage } from '@/sanity/sanity-utils';
 import { PortableText } from "@portabletext/react";
+import { PortableTextComponents } from "../portableTextComponents";
 
 export default async function About() {
     const page = await getPage('about');
@@ -9,7 +10,7 @@ export default async function About() {
                 {page.title}
             </h1>
             <div className="prose text-lg text-gray-700 mt-10">
-                <PortableText value={page.content} />
+                <PortableText value={page.content} components={PortableTextComponents} />
             </div>
         </div>
     )
