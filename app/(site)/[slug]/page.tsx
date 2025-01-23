@@ -26,7 +26,7 @@ export default function Page({params}: Props) {
                 <h2 className="mx-auto my-10">This page does not exist.</h2>
                 <Link href="/" className="mx-auto" >
                   <span className="ml-2 underline underline-offset-8 decoration-blue-500">
-                    Return to Drew's Projects
+                    Return to Drew&apos;s Projects
                   </span>
                 </Link>
             </div>
