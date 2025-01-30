@@ -23,22 +23,25 @@ export default async function Project({ params }: Props) {
                 </span>
             </Link>
         </div>
-        <header>
-            <h1 className="text-gray-700 text-5xl font-extrabold">
-                { project.name }
-            </h1>
-            <p className="mt-2">
-                { `Published: ${datePosted}` }
-            </p>
+        <header className="grid grid-flow-col items-center justify-center gap-10">
+            <div>
+                <Image 
+                    src={project.image}
+                    alt={project.name}
+                    width={532}
+                    height={400}
+                    className="mt-10 border-2 border-gray-700 object-cover rounded-xl"
+                />
+            </div>
+            <div className="">
+                <h1 className="text-gray-700 text-xl sm:text-3xl font-extrabold">
+                    { project.name }
+                </h1>
+                <p>
+                    { `Published: ${datePosted}` }
+                </p>
+            </div>
         </header>
-
-        <Image 
-            src={project.image}
-            alt={project.name}
-            width={1920}
-            height={1080}
-            className="mt-10 border-2 border-gray-700 object-cover rounded-xl"
-        />
 
         <div className="prose text-lg text-gray-700 mt-10">
             <PortableText value={project.content} components={PortableTextComponents} />
