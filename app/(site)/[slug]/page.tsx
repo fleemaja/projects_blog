@@ -1,6 +1,7 @@
 import { PortableText } from "@portabletext/react"
 import About from "./about";
 import Books from "./books";
+import Curiosities from "./curiosities";
 import Link from "next/link";
 
 type Props = {
@@ -16,6 +17,10 @@ export default function Page({params}: Props) {
     } else if (page ==='books') {
         return (
             <Books />
+        )
+    } else if (page ==='curiosities') {
+        return (
+            <Curiosities />
         )
     } else {
         return (

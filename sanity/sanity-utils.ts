@@ -1,5 +1,6 @@
 import { Project } from "@/types/Project";
 import { Book } from "@/types/Book";
+import { Curiosity } from "@/types/Curiosity";
 import { Page } from "@/types/Page";
 import { Category } from "@/types/Category";
 import { createClient, groq } from "next-sanity";
@@ -35,6 +36,17 @@ export async function getBooks(): Promise<Book[]> {
             "image": image.asset->url,
             content,
             excerpt,
+        }`
+    )
+}
+
+export async function getCuriosities(): Promise<Curiosity[]> {
+
+    return createClient(clientConfig).fetch(
+        groq`*[_type == "curiosity"] | order(_createdAt desc){
+            _id,
+            _createdAt,
+            content,
         }`
     )
 }
