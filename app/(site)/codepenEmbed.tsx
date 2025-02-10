@@ -19,7 +19,6 @@ const CodepenEmbed = (props: any) => {
       src={embedUrl} 
       frameBorder="no" 
       loading="lazy"
-      allowTransparency
       allowFullScreen>
     </iframe>
   );

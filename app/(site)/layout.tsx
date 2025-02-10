@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import '../globals.css'
 import { Inter } from 'next/font/google'
+import { getCategories } from "@/sanity/sanity-utils";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -14,6 +15,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+  const categories = await getCategories();
 
   return (
     <html lang="en">
@@ -75,16 +78,16 @@ export default async function RootLayout({
                 drew&apos;s projects
               </Link>
             </div>
-            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-8 text-lg text-white">
-              <Link href="/" className="text-white text-xl hover:underline">
-                Projects
-              </Link>
-              <Link href={`/books`} className="hover:underline">
-                Book Notes
-              </Link>
-              <Link href={`/about`} className="hover:underline">
-                About
-              </Link>
+            <div className="flex flex-col flex-wrap md:flex-row items-center gap-2 md:gap-8 text-white">
+              { categories.map((category) => 
+                (
+                  <Link key={category._id} href={`/projects/${category.slug}`}>
+                    <span className="p-2 hover:underline">
+                      {category.title}
+                    </span>
+                  </Link>
+                )
+              )}
             </div>
           </footer>
         </div>
