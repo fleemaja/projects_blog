@@ -9,7 +9,7 @@ export default async function Curiosities() {
         <div className="max-w-3xl mx-auto mt-10 px-5 lg:px-0">
             {
                 curiosities.map((curiosity) => (
-                <div className="prose text-lg text-gray-700 mt-10">
+                <div key={curiosity._id} className="prose text-lg text-gray-700 mt-10">
                     <PortableText value={curiosity.content} components={PortableTextComponents} />
                 </div>
                 ))
