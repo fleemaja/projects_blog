@@ -4,6 +4,11 @@ const curiosity = {
     type: 'document',
     fields: [
         {
+          name: 'title',
+          title: 'Title',
+          type: 'string',
+        },
+        {
             name: 'content',
             title: 'Content',
             type: 'array',
@@ -35,6 +40,28 @@ const curiosity = {
                   type: 'youtube'
                 },
             ]
+        },
+        {
+          name: 'color',
+          title: 'Color',
+          type: 'string',
+          options: {
+            list: [
+              { title: "Red", value: "red" },
+              { title: "Orange", value: "orange" },
+              { title: "Yellow", value: "yellow" },
+              { title: "Green", value: "green" },
+              { title: "Teal", value: "teal" },
+              { title: "Blue", value: "blue" },
+              { title: "Indigo", value: "indigo" },
+              { title: "Violet", value: "violet" },
+            ],
+          },
+        },
+        {
+          name: 'emoji',
+          title: 'Emoji',
+          type: 'string',
         },
     ]
 }

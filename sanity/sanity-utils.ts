@@ -47,6 +47,8 @@ export async function getCuriosities(): Promise<Curiosity[]> {
             _id,
             _createdAt,
             content,
+            color,
+            emoji
         }`
     )
 }
