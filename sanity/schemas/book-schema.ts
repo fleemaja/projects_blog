@@ -9,6 +9,11 @@ const book = {
             type: 'string'
         },
         {
+            name: 'author',
+            title: 'Author',
+            type: 'string'
+        },
+        {
             name: 'slug',
             title: 'slug',
             type: 'slug',

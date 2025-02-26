@@ -38,8 +38,8 @@ export default async function Project({ params }: Props) {
                 <h1 className="text-gray-700 text-2xl sm:text-5xl font-extrabold">
                     { book.name }
                 </h1>
-                <p>
-                    { book.excerpt }
+                <p className="mt-5 text-gray-500 text-xl sm:text-3xl font-bold">
+                    { `by ${book.author}` }
                 </p>
             </div>
           </div>

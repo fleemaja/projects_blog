@@ -28,6 +28,9 @@ export default async function Books() {
                   <div className="mt-2 text-xl font-extrabold text-gray-700 group-hover:underline decoration-4 underline-offset-4 decoration-zinc-900">
                     {book.name}
                   </div>
+                  <div className="text-lg font-bold text-gray-500">
+                  { `by ${book.author}` }
+                  </div>
                   <p>
                     {book.excerpt}
                   </p>
